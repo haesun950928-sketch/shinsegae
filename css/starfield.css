@@ -369,12 +369,9 @@ header{
     -webkit-user-drag: none;
 }
 .kids li:nth-child(1),.kids li:nth-child(5){display: none;}
-.kids li>span,.kids li>div{
+.kids li>div{
     position: absolute;
     left: 5%;
-}
-.kids li>span{top: 3%;}
-.kids li>div{
     bottom: 0;
     font-size: var(--text-sm);
     line-height: clamp(19px, 5.33vw, 34px);
@@ -519,11 +516,12 @@ header{
     padding-top: 37%;
     box-sizing: border-box;
     overflow-y: hidden;
-
     scrollbar-width: none;
 }
+.taste li:active {cursor: grabbing;}
 .taste-tit h2::after{display: none;}
-.taste li{width: 58%; flex-shrink: 0;}
+.taste li{width: 58%; flex-shrink: 0;
+cursor: grab;}
 .taste li img{
     width: 100%;
     object-fit: cover;
@@ -561,7 +559,7 @@ footer .footer-logo {
 
 
     .header-inner{
-        width: 75%;
+        width: 80%;
         gap: clamp(20px, 3.13vw, 60px);
         border-bottom: 1px solid #636363;
         box-sizing: border-box;
@@ -576,7 +574,7 @@ footer .footer-logo {
     /* sub back */
     .header-inner .sub-bg{
         width: 100%;
-        height: 250px;
+        height: 160px;
         background-color: #131313;
         position: absolute;
         top: 100%;
@@ -848,11 +846,6 @@ footer .footer-logo {
         height: clamp(300px, 36.46vw, 700px);
         border-radius: 25px;
     }
-    .kids li > span{
-        top: 4%;
-        left: 10%;
-        font-size: var(--title-sm);
-    }
     .kids li > div{
         left: 6%;
         bottom: 2.5%;
@@ -924,25 +917,33 @@ footer .footer-logo {
         visibility: visible;
     }
     .library-img:hover > img{transform: scale(1.04);}
+
     .library-img .library h3,
     .library-img .library p{display: block;}
+
     .library-img .library .btn{
-        width: 45%;
+        width: 35%;
         margin-left: auto;
         margin-right: auto;
         border: 1px solid var(--color-white);
         border-radius: 50px;
+        margin-top: clamp(20px, 2.08vw, 40px);
+        font-size: clamp(12px, 1.15vw, 20px);
+        line-height: 2.4;
+    }
+    .library-img .library .btn:hover{
+        background-color: var(--color-white);
+        color: var(--color-black);
+    }
+    .library-img .library .btn:hover img{
+        filter: brightness(0);
     }
     .library-img .library .btn img{
         filter: none;
         opacity: 1;
     }
     .library-img .library h3{font-size: clamp(28px, 3.5vw, 67px);}
-    .library-img .library .btn{
-        margin-top: clamp(20px, 2.08vw, 40px);
-        font-size: clamp(12px, 1.15vw, 20px);
-        line-height: 2.4;
-    }
+
 
 
 
