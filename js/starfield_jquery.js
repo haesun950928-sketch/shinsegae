@@ -46,10 +46,13 @@
         });
 
 
-    // PC 메뉴 열기
+        // PC 메뉴 열기
     $(".gnb > li").mouseenter(function() {
         if (window.innerWidth < 900) return;
+        // 검색창이 표시되어있는지
+        if ($(".search-panel").is(":visible")) return;
 
+        $("header").addClass("active");
         $(".gnb .sub, .sub-bg").stop().slideDown();
     });
 
@@ -57,10 +60,27 @@
     $("header").mouseleave(function() {
         if (window.innerWidth < 900) return;
 
-        $(".gnb .sub, .sub-bg").stop().slideUp();
+        $(".gnb .sub").stop().slideUp();
+
+        $(".sub-bg").stop().slideUp(function() {
+            $("header").removeClass("active");
+        });
     });
 
 
+
+
+
+    // 검색창
+    // 검색 영역 열기
+    $(".header-inner .search").click(function(){
+        $(".search-panel").stop().slideDown();
+    });
+
+    // 검색 영역 닫기
+    $(".search-close").click(function(){
+        $(".search-panel").stop().slideUp();
+    });
 
 
 

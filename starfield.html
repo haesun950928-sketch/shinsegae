@@ -45,7 +45,9 @@
                 <img class="logo" src="images/starfield_images/starfield_main_logo.png" alt="스타필드 로고">
 
 <!--------------- 모바일 닫기 버튼 ------------------>
-                <img class="close" src="images/starfield_images/icon_close.svg" alt="모바일 메뉴버튼">
+                <button class="close" type="button">
+                    <img src="images/starfield_images/icon_close.svg" alt="모바일 메뉴 닫기">
+                </button>
 
 
 
@@ -107,9 +109,32 @@
             <img class="icon-menu" src="images/starfield_images/icon-menu.svg" alt="모바일 메뉴버튼">
 
 <!---------------- pc sub back  ------------->
-            <div class="sub-bg"></div>
+            
         </div>
-    
+        <!-- sub menu 배경 -->
+        <div class="sub-bg"></div>
+
+        <div class="search-panel">
+
+            <button class="search-close" type="button">
+                <img src="images/starfield_images/icon_close.svg" alt="검색 영역 닫기">
+            </button>
+
+            <form>
+                <input type="search" name="keyword" placeholder="검색어를 입력하세요">
+
+            <button>
+                <img class="search" src="images/starfield_images/search.svg" alt="검색">
+            </button>
+            </form>
+
+            <ul class="keywords">
+                <li><button type="button">별마당 도서관</button></li>
+                <li><button type="button">주차 안내</button></li>
+                <li><button type="button">레스토랑</button></li>
+            </ul>
+
+        </div >
     </header>
 
 
