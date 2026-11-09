@@ -369,6 +369,10 @@ header{
     display: flex;
     gap: clamp(5px, 1.5vw, 25px);
     margin: 0 auto;
+
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
 }
 .kids li{
     min-width: 0;
@@ -398,6 +402,7 @@ header{
     height: clamp(300px, 70vw, 560px);
     object-fit: cover;
     border-radius: clamp(10px, 2.78vw, 53px);
+    -webkit-user-drag: none;
 }
 .kids li:nth-child(1),.kids li:nth-child(5){display: none;}
 .kids li>span,.kids li>div{
@@ -409,6 +414,36 @@ header{
     bottom: 0;
     font-size: var(--text-sm);
     line-height: clamp(19px, 5.33vw, 34px);
+}
+/* 확대된 키즈 이미지의 자세히 보기 */
+.kids li .kids-btn{
+    position: absolute;
+    right: 6%;
+    top: 4%;
+    padding: 6px 10px;
+    border-radius: 20px;
+    background-color: rgba(0, 0, 0, 0.25);
+    text-shadow: 0 1px 4px #00000080;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--color-white);
+    font-size: clamp(11px, 1.1vw, 18px);
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s;
+}
+.kids li.active .kids-btn{
+    opacity: 1;
+    visibility: visible;
+}
+.kids li .kids-btn img{
+    width: clamp(20px, 1.7vw, 28px);
+    height: auto;
+    flex-shrink: 0;
+    border-radius: 0;
+    filter: drop-shadow(0 1px 2px #00000080);
 }
 .kids-txt{
     font-size: var(--text-sm);
@@ -427,13 +462,18 @@ header{
     position: relative;
     /* 이미지 호버시 커질때 기존 사이즈보다 커지는것 안보이게 */
     overflow: hidden; 
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
 }
 .library-img > img{
     width: 100%;
     aspect-ratio: 5/6;
     transition: all 0.5s;
+
+    -webkit-user-drag: none;
 }
-.library-img.active > img {transform: scale(1.04);}
+
 .library-txt{
     width: 100%;
     height: auto;
@@ -454,22 +494,14 @@ header{
     height: 1px;
     background-color: #9f9f9f;
 }
-/* 호버 이미지 */
+/* 별마당 자세히 보기 */
 .library-img .library{
-    width: 100%;
-    height: 100%;
-    background-color: #000000b0;
-    position: absolute;
-    top: 0;
-    left: 0;
-    color: var(--color-white);
-    padding-top: 35%;
-    box-sizing: border-box;
-    text-align: center;
-    line-height: 1.8;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.5s;
+    position: static;
+    color: #636363;
+}
+.library-img .library h3,
+.library-img .library p{
+    display: none;
 }
 .library-img.active .library {
     opacity: 1;
@@ -481,20 +513,39 @@ header{
 }
 .library-img .library p{font-size: clamp(11px, 2.5vw, 18px);}
 .library-img .library .btn{
-    width: 45%;
-    margin: clamp(16px, 4.44vw, 28px) auto 0;
-    font-size: clamp(14px, 2.5vw, 20px);
-    line-height: 2.4;
+    width: fit-content;
+    margin: clamp(8px, 2.22vw, 14px) 0 0 auto;
+    font-size: clamp(12px, 2.5vw, 16px);
+    line-height: 1.8;
     gap: clamp(6px, 1.67vw, 12px);
-    border: 1px solid var(--color-white);
-    border-radius: clamp(50px, 13.89vw, 267px);
+    border: none;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 /* 화살표 */
-.library-img .library .btn img{width: 10%;}
+.library-img .library .btn img{
+    width: clamp(20px, 1.7vw, 28px);
+    height: auto;
+    filter: invert(1);
+    opacity: 0.61;
+}
 
+
+/* 모바일 별마당 위아래 라인 여백 */
+@media (max-width: 899px){
+    .library-tit{
+        margin-bottom: clamp(14px, 3.89vw, 22px);
+    }
+    .library-tit h2{margin-bottom: 0;}
+    .library-tit h2::after{top: 100%;}
+    .library-img > img{display: block;}
+    .library-txt{
+        margin-top: clamp(8px, 2.22vw, 14px);
+        padding-top: 8px;
+    }
+    .library-txt::after{top: 0;}
+}
 
 /* ----------------음식점 */
 .taste{
@@ -863,13 +914,48 @@ header{
     }
     .library-txt{
         width: 75%;
-        margin: 50px auto 0;
+        margin: 20px auto 0;
         padding-top: 14px;
         border-top: 1px solid #9f9f9f;
         color: #9f9f9f;
     }
     .library-txt::after{display: none;}
-    .library-img .library{line-height: 2;}
+    /* PC 별마당은 기존 호버 화면 유지 */
+    .library-img .library{
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        padding-top: 35%;
+        box-sizing: border-box;
+        background-color: #000000b0;
+        color: var(--color-white);
+        text-align: center;
+        line-height: 2;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.5s;
+    }
+    .library-img:hover .library{
+        opacity: 1;
+        visibility: visible;
+    }
+    .library-img:hover > img{transform: scale(1.04);}
+    .library-img .library h3,
+    .library-img .library p{display: block;}
+    .library-img .library .btn{
+        width: 45%;
+        margin-left: auto;
+        margin-right: auto;
+        border: 1px solid var(--color-white);
+        border-radius: 50px;
+    }
+    .library-img .library .btn img{
+        filter: none;
+        opacity: 1;
+    }
     .library-img .library h3{font-size: clamp(28px, 3.5vw, 67px);}
     .library-img .library .btn{
         margin-top: clamp(20px, 2.08vw, 40px);
