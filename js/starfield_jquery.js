@@ -125,12 +125,48 @@
         );
 
         // 키즈 - 모바일 터치
-        $(".kids li").click(function() {
+        $(".kids li").on("touchstart", function() {
             if (window.matchMedia("(hover: none)").matches) {
-                $(".kids li").not(this).removeClass("active");
-                $(this).toggleClass("active");
+                $(".kids li").removeClass("active");
+                $(this).addClass("active");
             }
         });
+
+        $(".kids li").on("touchend touchcancel", function() {
+            $(this).removeClass("active");
+        });
+
+
+
+
+
+        // 별마당 - PC 호버
+        $(".library-img").hover(
+            function() {
+                if (window.matchMedia("(hover: hover)").matches) {
+                    $(this).addClass("active");
+                }
+            },
+            function() {
+                $(this).removeClass("active");
+            }
+        );
+
+        // 별마당 - 모바일 터치
+        $(".library-img").on("touchstart", function() {
+            if (window.matchMedia("(hover: none)").matches) {
+                $(this).addClass("active");
+            }
+        });
+
+        $(".library-img").on("touchend touchcancel", function() {
+            $(this).removeClass("active");
+        });
+
+
+
+
+
 
 
     //-----------------------------푸드
