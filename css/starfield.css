@@ -158,8 +158,8 @@ header{
     position: relative;
 }
 /* pc 에서 추가한 이미지 안보이게 */
-.main-img .brand li.brand-copy {display: none;}
-.main-img .brand li:nth-child(5){display: none;}
+.main-img .brand li.brand-copy{display: none;}
+.main-img .brand li.diiid{display: none;}
 .main-img .brand li img{
     position: absolute;
     aspect-ratio: 16/10;
@@ -706,8 +706,8 @@ footer .footer-logo {
         overflow: hidden;
     }
     /* pc 추가한 브랜드 이미지 다시 보이게 */
-    .main-img .brand li.brand-copy {display: block;}
-    .main-img .brand li:nth-child(5){display: block;}
+    .main-img .brand li.brand-copy{display: block;}
+    .main-img .brand li.diiid{display: block;}
     .main-img .brand li a{
         display: block;
         width: 100%;
