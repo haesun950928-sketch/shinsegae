@@ -2,42 +2,6 @@
 
 
 
-/* -------------reset----------- */
-html, body, div, span, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-abbr, address, cite, code,
-del, dfn, em, img, ins, kbd, q, samp,
-small, strong, sub, sup, var,
-b, i,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section, summary,
-time, mark, audio, video {
-    margin:0;
-    padding:0;
-    border:0;
-    outline:0;
-    font-size:100%;
-    vertical-align:baseline;
-    background:transparent;
-}
-body{line-height:1; font-family: "Noto Sans KR";}
-a{text-decoration:none; color: inherit;}
-img{border:none; vertical-align:top;}
-ul{list-style:none;}
-table {
-    border-collapse:collapse;
-    border-spacing:0;
-}
-input, select {
-    vertical-align:middle;
-}
-
-
-
-
 
 
 /* 커스텀 프로퍼티 */
@@ -453,7 +417,14 @@ header{
 
 
 /*------------- 별마당 */
-.library-tit h2::after{width: 85%;}
+.library-tit{
+    margin-bottom: clamp(14px, 3.89vw, 22px);
+}
+.library-tit h2{margin-bottom: 0;}
+.library-tit h2::after{
+    width: 85%;
+    top: 100%;
+}
 .library-img{
     width: 70%;
     max-width: 420px;
@@ -467,6 +438,7 @@ header{
     -webkit-touch-callout: none;
 }
 .library-img > img{
+    display: block;
     width: 100%;
     aspect-ratio: 5/6;
     transition: all 0.5s;
@@ -481,13 +453,14 @@ header{
     text-align: center;
     color: #636363;
     font-size: var(--title-sm);
-    margin:clamp(20px, 4vw, 32px) 0 clamp(120px, 20vw, 180px);
+    margin: clamp(8px, 2.22vw, 14px) 0 clamp(120px, 20vw, 180px);
+    padding-top: 8px;
 }
 /* 도서관 포스터 하단 라인 */
 .library-txt::after{
     content: "";
     position: absolute;
-    top: -40%;
+    top: 0;
     left: 50%;
     transform: translateX(-50%);
     width: 85%;
@@ -532,20 +505,7 @@ header{
 }
 
 
-/* 모바일 별마당 위아래 라인 여백 */
-@media (max-width: 899px){
-    .library-tit{
-        margin-bottom: clamp(14px, 3.89vw, 22px);
-    }
-    .library-tit h2{margin-bottom: 0;}
-    .library-tit h2::after{top: 100%;}
-    .library-img > img{display: block;}
-    .library-txt{
-        margin-top: clamp(8px, 2.22vw, 14px);
-        padding-top: 8px;
-    }
-    .library-txt::after{top: 0;}
-}
+
 
 /* ----------------음식점 */
 .taste{
@@ -570,6 +530,23 @@ header{
     border-radius: clamp(10px, 2.78vw, 53px);
     border: 1px solid #FDD49E;
 }
+
+
+
+/* ----------------푸터 블랙 버전 */
+footer {
+    background-color: var(--color-black);
+    color: var(--color-white);
+}
+
+footer .footer-logo {
+    color: var(--color-white);
+}
+
+
+
+
+
 
 
 /* -----반응형  900  */
@@ -903,7 +880,11 @@ header{
         margin-top: clamp(160px, 14.58vw, 280px);
         margin-bottom: 36px;
     }
-    .library-tit h2::after{width: 75%;}
+    .library-tit h2{margin-bottom: 20px;}
+    .library-tit h2::after{
+        width: 75%;
+        top: calc(100% + 16px);
+    }
     .library-img{
         width: 44%;
         max-width: none;
@@ -991,4 +972,6 @@ header{
 
 
 }
+
+
 
