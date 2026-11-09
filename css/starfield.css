@@ -827,6 +827,7 @@ footer .footer-logo {
         font-family: "Lora", serif;
         font-size: clamp(9px, 1vw, 18px);
         line-height: 1.7;
+        white-space: nowrap
     }
     .kids li > div span:first-child{font-size: clamp(13px, 1.46vw, 28px);}
     .kids li::after{
