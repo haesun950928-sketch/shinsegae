@@ -82,6 +82,13 @@
         $(".search-panel").stop().slideUp();
     });
 
+    // 키워드 검색창에 넣기
+        $(".keywords button").click(function() {
+        const keyword = $(this).text();
+
+        $(".search-panel input").val(keyword);
+    });
+
 
 
     // -------------------메인 브랜드 이미지

@@ -142,7 +142,7 @@ header{
     border: none;
     background: none;
     outline: none;
-    font-size: clamp(16px, 2.2vw, 30px);
+    font-size: clamp(16px, 2.2vw, 20px);
 }
 .search-panel input::placeholder{
     color: #777;
@@ -162,7 +162,10 @@ header{
     color: #636363;
     font-size: clamp(14px, 1.2vw, 18px);
 }
-
+.keywords button:hover{
+    color: #1A1A1A;
+    font-weight: bold;
+}
 
 
 
